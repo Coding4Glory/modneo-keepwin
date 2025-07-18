@@ -8,7 +8,7 @@ Setup with lazy
 
 ```lua
 return {
-    'coding4glory/tiny-buffers.nvim',
+    'coding4glory/tiny-windows.nvim',
     -- following default options
     opts = {
         default_keymaps = true, -- set to false to not add default bindings
