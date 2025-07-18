@@ -1,6 +1,26 @@
+--[[
+tiny-buffers.nvim
+Copyright (C) 2025  Markus Hergenröder <markus@coding4glory.net>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--]]
+
+---@class TinyBuffersCommands
+---@field setup function
 return {
-    ---@param core TinyBuffersCore
-    ---@param opts TinyBuffersSettings
+    ---@param core TinyBuffersCore the initialized core
+    ---@param opts TinyBuffersSettings defaults merged with user settings
     setup = function(core, opts)
         vim.api.nvim_create_user_command(
             "Bc",
