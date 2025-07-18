@@ -1,5 +1,5 @@
 --[[
-tiny-buffer.nvim
+tiny-windows.nvim
 Copyright (C) 2025  Markus Hergenröder <markus@coding4glory.net>
 
 This program is free software: you can redistribute it and/or modify
@@ -16,10 +16,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --]]
 
----@class TinyBuffersConfig
+---@class TinyWindowsConfig
 local M = {}
 
----@class TinyBuffersSettings
+---@class TinyWindowsSettings
 ---@field default_keymaps boolean add default keymaps, default is `true`
 ---@field try_keep_open boolean **Experimental** set to true to try to keep an open buffer, default is `false`
 M.defaults = {
@@ -30,7 +30,7 @@ M.defaults = {
 ---@type function
 ---initializes the configuration
 ---@param opts any
----@return TinyBuffersSettings
+---@return TinyWindowsSettings
 M.init = function(opts)
     local config = vim.tbl_deep_extend('force', M.defaults, opts or {})
     return config

@@ -1,4 +1,4 @@
-# tiny buffers
+# tiny.nvim window enhancements
 
 Currently this module adds only one commands `Bc` to close a buffer but keep the window.
 

@@ -1,5 +1,5 @@
 --[[
-tiny-buffers.nvim
+tiny-windows.nvim
 Copyright (C) 2025  Markus Hergenröder <markus@coding4lgory.net>
 
 This program is free software: you can redistribute it and/or modify
@@ -16,8 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --]]
 
----@class TinyBuffersCore
----@field settings TinyBuffersSettings
+---@class TinyWindowsCore
+---@field settings TinyWindowsSettings
 local M = {}
 
 ---@type function
@@ -68,7 +68,7 @@ local function keep_open_buffer(opts)
 end
 
 ---performs the module initialization
----@param opts TinyBuffersSettings
+---@param opts TinyWindowsSettings
 M.setup = function(opts)
     M.settings = opts
     if opts.default_keymaps then

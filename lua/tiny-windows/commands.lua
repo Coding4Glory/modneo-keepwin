@@ -1,5 +1,5 @@
 --[[
-tiny-buffers.nvim
+tiny-windows.nvim
 Copyright (C) 2025  Markus Hergenröder <markus@coding4glory.net>
 
 This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --]]
 
----@class TinyBuffersCommands
+---@class TinyWindowsCommands
 ---@field setup function
 return {
-    ---@param core TinyBuffersCore the initialized core
-    ---@param opts TinyBuffersSettings defaults merged with user settings
+    ---@param core TinyWindowsCore the initialized core
+    ---@param opts TinyWindowsSettings defaults merged with user settings
     setup = function(core, opts)
         vim.api.nvim_create_user_command(
             "Bc",

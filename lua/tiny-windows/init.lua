@@ -1,5 +1,5 @@
 --[[
-tiny-buffers.nvim
+tiny-windows.nvim
 Copyright (C) 2025  Markus Hergenröder <markus@coding4glory.net>
 
 This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --]]
 
----@class TinyBuffersStartup
+---@class TinyWindowsStartup
 ---@field setup function
 return {
     ---runs the plugin startup logic
-    ---@params opts TinyBuffersSettings?
+    ---@params opts TinyWindowsSettings?
     setup = function(opts)
-        local settings = require('tiny-buffers.config').init(opts)
-        local core = require('tiny-buffers.core').setup(settings)
-        require('tiny-buffers.commands').setup(core, settings)
+        local settings = require('tiny-windows.config').init(opts)
+        local core = require('tiny-windows.core').setup(settings)
+        require('tiny-windows.commands').setup(core, settings)
     end
 }
