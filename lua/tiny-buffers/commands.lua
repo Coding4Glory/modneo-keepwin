@@ -1,6 +1,6 @@
 return {
     ---@param core TinyBuffersCore
-    ---@param opts TinyBufferSettings
+    ---@param opts TinyBuffersSettings
     setup = function(core, opts)
         vim.api.nvim_create_user_command(
             "Bc",

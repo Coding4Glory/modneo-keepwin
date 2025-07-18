@@ -1,7 +1,10 @@
 ---@class TinyBuffersCore
+---@field settings TinyBuffersSettings
 local M = {}
 
--- better buffer control
+---@type function
+---gets the number of editor buffers determined by their listed state
+---@return integer
 local function get_editor_count()
 	local all_bufs = vim.api.nvim_list_bufs()
 	local loaded_count = 0
@@ -14,7 +17,7 @@ local function get_editor_count()
 end
 
 ---@type function
----@param opts table
+---@param opts vim.api.keyset.create_autocmd
 M.buffer_close = function(opts)
 	if vim.bo.modified and not opts.bang then
 		vim.api.nvim_err_writeln("Modified buffer save changes (:w) or override with :Bc!")
@@ -47,9 +50,13 @@ local function keep_open_buffer(opts)
 end
 
 ---performs the module initialization
----@param opts TinyBufferSettings
+---@param opts TinyBuffersSettings
 M.setup = function(opts)
-	vim.keymap.set("n", "<C-w><del>", buffer_close, { desc = "close buffer" })
+    M.settings = opts
+    if opts.default_keymaps then
+	    vim.keymap.set("n", "<C-w><del>", M.buffer_close, { desc = "close buffer" })
+    end
+
 	if opts.try_keep_open then
 		vim.api.nvim_create_autocmd("WinClosed", {
 			group = vim.api.nvim_create_augroup("tiny_keep_window", { clear = true }),
@@ -57,4 +64,7 @@ M.setup = function(opts)
 			desc = "opens new window if last window is closed but editor buffers awailable",
 		})
 	end
+    return M
 end
+
+return M
