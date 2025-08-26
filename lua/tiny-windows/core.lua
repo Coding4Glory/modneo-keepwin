@@ -35,14 +35,14 @@ local function get_editor_count()
 end
 
 ---@type function
----@param opts vim.api.keyset.create_autocmd
+---@param opts vim.api.keyset.create_autocmd.callback_args
 M.buffer_close = function(opts)
 	if vim.bo.modified and not opts.bang then
 		vim.api.nvim_err_writeln("Modified buffer save changes (:w) or override with :Bc!")
 		return
 	end
 	if get_editor_count() > 1 then
-		vim.cmd("bn|bd#")
+		vim.cmd("bn|bd!#")
 		return
 	end
 	vim.api.nvim_err_writeln("No buffer left for window. Use :q")
