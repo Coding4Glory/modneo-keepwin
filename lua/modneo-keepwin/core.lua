@@ -1,5 +1,5 @@
 --[[
-tiny-windows.nvim
+modneo-keepwin
 Copyright (C) 2025  Markus Hergenröder <markus@coding4lgory.net>
 
 This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --]]
 
----@class TinyWindowsCore
----@field settings TinyWindowsSettings
+---@class Modneo.KeepWin
+---@field options Modneo.KeepWin.Options
 local M = {}
 
----@type function
 ---gets the number of editor buffers determined by their listed state
 ---@return integer
 local function get_editor_count()
@@ -34,9 +33,10 @@ local function get_editor_count()
 	return loaded_count
 end
 
----@type function
+---closes the buffer honoring the bang in opts
 ---@param opts vim.api.keyset.create_autocmd.callback_args
 M.buffer_close = function(opts)
+    --TODO: detach of callback_args
 	if vim.bo.modified and not opts.bang then
 		vim.api.nvim_err_writeln("Modified buffer save changes (:w) or override with :Bc!")
 		return
@@ -48,11 +48,10 @@ M.buffer_close = function(opts)
 	vim.api.nvim_err_writeln("No buffer left for window. Use :q")
 end
 
----@type function
+
 ---experimetal function to keep at least one editor window open
 ---if an editor buffer is available
----@param opts table options passed via aucmd
-local function keep_open_buffer(opts)
+local function keep_open_buffer()
 	local all_windows = vim.api.nvim_list_wins()
 	local editor_windows = 0
 	for _, w in ipairs(all_windows) do
@@ -68,9 +67,9 @@ local function keep_open_buffer(opts)
 end
 
 ---performs the module initialization
----@param opts TinyWindowsSettings
+---@param opts Modneo.KeepWin.Options
 M.setup = function(opts)
-    M.settings = opts
+    M.options = opts
     if opts.default_keymaps then
 	    vim.keymap.set("n", "<C-w><del>", M.buffer_close, { desc = "close buffer" })
     end

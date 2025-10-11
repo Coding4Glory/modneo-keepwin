@@ -1,20 +1,20 @@
-*tiny-windows.nvim.txt*        For neovim-0.12       Last change: 2025 July 18
+*modneo-keepwin.txt*        For neovim-0.11       Last change: 2025 October 11
 
 ==============================================================================
-Table of Contents                        *tiny-windows.nvim-table-of-contents*
+Table of Contents                           *modneo-keepwin-table-of-contents*
 
-1. tiny buffers                               |tiny-windows.nvim-tiny-buffers|
-  - Setup and Configuration|tiny-windows.nvim-tiny-buffers-setup-and-configuration|
-  - Usage                               |tiny-windows.nvim-tiny-buffers-usage|
+1. modneo-keepwin                              |modneo-keepwin-modneo-keepwin|
+  - Setup and Configuration|modneo-keepwin-modneo-keepwin-setup-and-configuration|
+  - Usage                                |modneo-keepwin-modneo-keepwin-usage|
 
 ==============================================================================
-1. tiny buffers                               *tiny-windows.nvim-tiny-buffers*
+1. modneo-keepwin                              *modneo-keepwin-modneo-keepwin*
 
-Currently this module adds only one commands `Bc` to close a buffer but keep
-the window.
+Tiny plugin to add just a single command to keep windows when closing buffers:
+`Bc[!]`
 
 
-SETUP AND CONFIGURATION*tiny-windows.nvim-tiny-buffers-setup-and-configuration*
+SETUP AND CONFIGURATION*modneo-keepwin-modneo-keepwin-setup-and-configuration*
 
 Setup with lazy
 
@@ -34,15 +34,16 @@ Setup with lazy
   will cause annoing behaviour in combination with windows opened to the side e.
   g. _file trees_.
 
-USAGE                                   *tiny-windows.nvim-tiny-buffers-usage*
+USAGE                                    *modneo-keepwin-modneo-keepwin-usage*
 
 
 COMMANDS ~
 
-Simply `:Bc[!]` in normal mode
+`:Bc[!]` Call in normal mode do close buffer. Add bang to close modified
+buffer. The plugin internally uses `bw` to wipe the buffer.
 
 
-KEYBINDINGS ~
+KEYBINDINGS+ ~
 
 If default bindings are enabled:
 

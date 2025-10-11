@@ -1,5 +1,5 @@
 --[[
-tiny-windows.nvim
+modneo-keepwin
 Copyright (C) 2025  Markus Hergenröder <markus@coding4glory.net>
 
 This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --]]
 
----@class TinyWindowsCommands
----@field setup function
+---@class Modneo.KeepWin.Commands
 return {
-    ---@param core TinyWindowsCore the initialized core
-    ---@param opts TinyWindowsSettings defaults merged with user settings
+    ---defines commands provided by this plugin
+    ---@param core Modneo.KeepWin the initialized core
+    ---@param opts Modneo.KeepWin.Options defaults merged with user settings
     setup = function(core, opts)
         vim.api.nvim_create_user_command(
             "Bc",
@@ -28,6 +28,7 @@ return {
             { desc = "close buffer but try to keep window", bang = true }
         )
     end,
+    ---removes commands provided by this plugin
     unload = function()
         for cmd, _ in pairs(vim.api.nvim_get_commands({builtin = false})) do
             if cmd == 'Bc' then vim.api.nvim_del_user_command('Bc') end

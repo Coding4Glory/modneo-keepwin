@@ -1,6 +1,6 @@
-# tiny.nvim window enhancements
+# modneo-keepwin
 
-Currently this module adds only one commands `Bc` to close a buffer but keep the window.
+Tiny plugin to add just a single command to keep windows when closing buffers: `Bc[!]`
 
 ## Setup🚀 and Configuration⚙
 
@@ -23,7 +23,7 @@ return {
 
 ### Commands⌨
 
-Simply `:Bc[!]` in normal mode
+`:Bc[!]` Call in normal mode do close buffer. Add bang to close modified buffer. The plugin internally uses `bw` to wipe the buffer.
 
 ### KeyBindings⌨+⌨
 
