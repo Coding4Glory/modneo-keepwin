@@ -20,10 +20,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 return {
     check = function ()
-        local commands = vim.api.nvim_get_commands({builtin = false}) 
-        for cmd, _ in ipairs(commands) do
-            if cmd == 'Bc' then 
-                vim.health.ok('command available') 
+        for n, _ in pairs(vim.api.nvim_get_commands({builtin = false})) do
+            if n == 'Bc' then 
+                vim.health.ok('command available')
                 return
             end
         end
