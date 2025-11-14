@@ -2,13 +2,13 @@
 
 Tiny plugin to add just a single command to keep windows when closing buffers: `Bc[!]`
 
-## Setup🚀 and Configuration⚙
+## Setup 🚀 and Configuration ⚙
 
 Setup with lazy
 
 ```lua
 return {
-    'coding4glory/tiny-windows.nvim',
+    'Coding4Glory/modneo-keepwin.nvim',
     -- following default options
     opts = {
         default_keymaps = true, -- set to false to not add default bindings
@@ -19,13 +19,13 @@ return {
 
 > The `try_keep_open` setting which tries to always keep an open editor buffer, will cause annoing behaviour in combination with windows opened to the side e. g. *file trees*.
 
-## Usage🔑
+## Usage 🔑
 
-### Commands⌨
+### Commands ⌨
 
 `:Bc[!]` Call in normal mode do close buffer. Add bang to close modified buffer. The plugin internally uses `bw` to wipe the buffer.
 
-### KeyBindings⌨+⌨
+### KeyBindings ⌨➕⌨
 
 If default bindings are enabled:
 
